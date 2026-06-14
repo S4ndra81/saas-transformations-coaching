@@ -4,11 +4,11 @@ header {
     
 }
 
-.logo img{
-height: auto;
-width: 20%;
-
+.logo img {
+    width: 120px;
+    height: auto;
 }
+
 
 /* Fade-In Animation beim Laden */
 body {
@@ -23,25 +23,50 @@ body {
     to { opacity: 1; }
 }
 
+.kontakt-map iframe {
+    box-shadow: 0 0 25px rgba(0,0,0,0.15);
+}
+.kontakt-map a:hover {
+    opacity: 1 !important;
+}
 
 a {
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     color: #e9d78c;
 }
-.header-links {
-
-    display: flex;
-    justify-content: space-evenly;
-align-items: center;
-
+/* HEADER */
+header {
+    background-color: #0E3A40;
+    padding: 1em 0;
 }
-/* Navigation Basis */
+
+/* Header-Container */
+.header-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: 0 auto;
+}
+
+/* Logo */
+header .logo img {
+    width: 180px;
+    height: auto;
+}
+
+/* Desktop Navigation */
 .desktop-nav {
     display: flex;
     gap: 2em;
 }
 
+.desktop-nav a {
+    font-size: 1.1em;
+}
+
+/* Hamburger Menü */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -55,6 +80,7 @@ align-items: center;
     background-color: #e9d78c;
 }
 
+/* Mobile Navigation */
 .mobile-nav {
     display: none;
     flex-direction: column;
@@ -63,28 +89,99 @@ align-items: center;
     text-align: center;
 }
 
+.mobile-nav a {
+    padding: 10px 0;
+    font-size: 1.2em;
+}
+
+/* ---------------------- */
+/* RESPONSIVE HEADER */
+/* ---------------------- */
+@media (max-width: 900px) {
+
+    /* Logo kleiner auf Mobile */
+    header .logo img {
+        width: 140px;
+    }
+
+    /* Desktop Navigation ausblenden */
+    .desktop-nav {
+        display: none;
+    }
+
+    /* Hamburger sichtbar */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Mobile Navigation sichtbar wenn aktiv */
+    .mobile-nav.active {
+        display: flex;
+    }
+}
+
+
 
 footer {
     background-color: #0E3A40;
-height: 460px;
-
+    padding: 4em 0;
 }
 
-.footer-links{
+/* 3-Spalten Layout */
+.footer-links {
     display: flex;
-    position: relative;
-    justify-content: space-evenly;
-align-items: center;
-top: 20%;
-
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
+    margin: 0 auto;
+    gap: 60px;
 }
 
-.footer-info {
+/* Jede Spalte */
+.footer-col {
     display: flex;
-    position: relative;
     flex-direction: column;
-    right: 40%;
+    gap: 10px;
 }
+
+/* Logo */
+.footer-logo {
+    width: 180px;
+    height: auto;
+}
+
+/* Textfarbe */
+.footer-col p,
+.footer-col a {
+    color: #e9d78c;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.footer-col a:hover {
+    opacity: 0.7;
+}
+
+/* ---------------------- */
+/* RESPONSIVE (Mobile) */
+/* ---------------------- */
+@media (max-width: 900px) {
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2.5em;
+        width: 100%;
+    }
+
+    .footer-logo {
+        width: 150px;
+    }
+}
+
+
+
 .footer-info p {
     color: #e9d78c;
 }
@@ -155,7 +252,7 @@ gap: 40px;
     height: auto;
     width: 50%;
     position: relative;
-    bottom: 50px;
+    bottom: 170px;
   
 }
 
@@ -169,7 +266,7 @@ gap: 40px;
     color: white;
 }
 
-
+/* über mich bild*/
 .uebermich img {
 height: auto;
 width: 40%;
@@ -485,6 +582,87 @@ button:hover,
     opacity: 0.7;
 }
 
+/* ⭐ 404 – viele schwebende Bälle ⭐ */
+.error-ball {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #e9d78c;
+    border-radius: 50%;
+    opacity: 0.25;
+    animation: floatBall 6s infinite ease-in-out;
+}
+
+.ball1 { top: 20%; left: 10%; animation-duration: 5s; }
+.ball2 { top: 40%; left: 80%; animation-duration: 7s; }
+.ball3 { top: 70%; left: 20%; animation-duration: 6s; }
+.ball4 { top: 30%; left: 50%; animation-duration: 8s; }
+.ball5 { top: 60%; left: 70%; animation-duration: 4s; }
+.ball6 { top: 10%; left: 60%; animation-duration: 9s; }
+.ball7 { top: 80%; left: 30%; animation-duration: 5.5s; }
+
+@keyframes floatBall {
+    0% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-25px) scale(1.1); }
+    100% { transform: translateY(0px) scale(1); }
+}
+
+/* ⭐ Planet ⭐ */
+.error-planet {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #e9d78c 0%, #0E3A40 70%);
+    border-radius: 50%;
+    position: absolute;
+    top: 15%;
+    left: -90px;
+    opacity: 0.3;
+    animation: floatPlanet 6s ease-in-out infinite;
+}
+
+@keyframes floatPlanet {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(25px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ⭐ Astronaut ⭐ */
+.error-astronaut {
+    width: 340px;
+    height: 340px;
+    background: url('Images/astronaut.png') no-repeat center/contain;
+    position: absolute;
+    bottom: 10%;
+    right: -70px;
+    opacity: 0.4;
+    animation: floatAstronaut 5s ease-in-out infinite;
+}
+
+@keyframes floatAstronaut {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* ⭐ Mobile Fix ⭐ */
+@media (max-width: 900px) {
+    .error-planet {
+        width: 130px;
+        height: 130px;
+        left: -40px;
+    }
+
+    .error-astronaut {
+         width: 340px;
+    height: 340px;
+        right: -30px;
+    }
+
+    .error-ball {
+        width: 25px;
+        height: 25px;
+    }
+}
 
 
 
@@ -569,10 +747,16 @@ button:hover,
     gap: 20px;
 }
 
+
 .uebermich img {
-    width: 80%;
-    max-width: 300px;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
 }
+
 
 .uebermich p {
     width: 100%;
